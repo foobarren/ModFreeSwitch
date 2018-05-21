@@ -25,7 +25,7 @@ namespace ModFreeSwitch.Messages
         {
             Command = command;
             var response1 = response;
-            ReplyText = response1 != null ? response1.BodyLines.First() : string.Empty;
+            ReplyText = response1.BodyLines.Count != 0 ? response1.BodyLines.First() : string.Empty;
             IsOk = !string.IsNullOrEmpty(ReplyText) && ReplyText.StartsWith(EslHeadersValues.Ok);
         }
 

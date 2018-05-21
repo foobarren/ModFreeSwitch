@@ -52,6 +52,12 @@ namespace ModFreeSwitch.Handlers.outbound
                             await _outboundListener.OnAuthentication();
                             break;
                         case EslHeadersValues.CommandReply:
+                            var commandAsyncEvent1 = CommandAsyncEvents.Dequeue();
+                            var cmdResponse = new CommandReply(commandAsyncEvent1.Command.Command,
+                                msg);
+                            commandAsyncEvent1.Complete(cmdResponse);
+                            break;
+
                         case EslHeadersValues.ApiResponse:
                             var commandAsyncEvent = CommandAsyncEvents.Dequeue();
                             var apiResponse = new ApiResponse(commandAsyncEvent.Command.Command,

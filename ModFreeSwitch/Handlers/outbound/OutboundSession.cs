@@ -158,7 +158,7 @@ namespace ModFreeSwitch.Handlers.outbound
         public async Task ConnectAsync()
         {
             _logger.Info("connecting to freeSwitch mod_event_socket...");
-            _channel = await _bootstrap.ConnectAsync(Address,
+            _channel = await _bootstrap.ConnectAsync(IPAddress.Parse(Address),
                 Port);
             _logger.Info("successfully connected to freeSwitch mod_event_socket.");
         }

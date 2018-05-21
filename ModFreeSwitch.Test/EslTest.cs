@@ -210,7 +210,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SendApiTest()
         {
-            const string address = "192.168.74.128";
+            const string address = "10.0.11.99";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -229,7 +229,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SendBgApiTest()
         {
-            const string address = "192.168.74.128";
+            const string address = "10.0.11.99";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -247,7 +247,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SendCommandTest()
         {
-            const string address = "192.168.74.128";
+            const string address = "10.0.11.99";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -266,7 +266,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SubscribeToEventsTest()
         {
-            const string address = "192.168.74.128";
+            const string address = "10.0.11.99";
             const string password = "ClueCon";
             const int port = 8021;
 
