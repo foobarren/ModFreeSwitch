@@ -100,7 +100,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void ConnectToFreeSwitchTest()
         {
-            var address = "192.168.74.128";
+            var address = "10.0.75.2";
             var password = "ClueCon";
             var port = 8021;
 
@@ -170,7 +170,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void InboundModeTest()
         {
-            const string address = "192.168.74.128";
+            const string address = "10.0.75.2";
             const string password = "ClueCon";
             const int port = 8021;
             const int ServerPort = 10000;
@@ -210,7 +210,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SendApiTest()
         {
-            const string address = "10.0.11.99";
+            const string address = "10.0.75.2";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -218,18 +218,18 @@ namespace ModFreeSwitch.Test
                 port,
                 password);
             await client.ConnectAsync();
-            Thread.Sleep(100); // this is due to the asynchronous pattern of the framework
+            Thread.Sleep(500); // this is due to the asynchronous pattern of the framework
             const string commandString = "sofia profile external gwlist up";
             var response = await client.SendApiAsync(new ApiCommand(commandString));
 
-            Assert.Contains("smsghlocalsip",
+            Assert.Contains("example.com",
                 response.ReplyText);
         }
 
         [Fact]
         public async void SendBgApiTest()
         {
-            const string address = "10.0.11.99";
+            const string address = "10.0.75.2";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -237,7 +237,7 @@ namespace ModFreeSwitch.Test
                 port,
                 password);
             await client.ConnectAsync();
-            Thread.Sleep(100); // this is due to the asynchronous pattern of the framework
+            Thread.Sleep(1000); // this is due to the asynchronous pattern of the framework
             var jobId = await client.SendBgApiAsync(new BgApiCommand("status",
                 string.Empty));
 
@@ -247,7 +247,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SendCommandTest()
         {
-            const string address = "10.0.11.99";
+            const string address = "10.0.75.2";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -255,7 +255,7 @@ namespace ModFreeSwitch.Test
                 port,
                 password);
             await client.ConnectAsync();
-            Thread.Sleep(100); // this is due to the asynchronous pattern of the framework
+            Thread.Sleep(1000); // this is due to the asynchronous pattern of the framework
 
             var cmd = new BgApiCommand("fsctl",
                 "debug_level 7");
@@ -266,7 +266,7 @@ namespace ModFreeSwitch.Test
         [Fact]
         public async void SubscribeToEventsTest()
         {
-            const string address = "10.0.11.99";
+            const string address = "10.0.75.2";
             const string password = "ClueCon";
             const int port = 8021;
 
@@ -274,7 +274,7 @@ namespace ModFreeSwitch.Test
                 port,
                 password);
             await client.ConnectAsync();
-            Thread.Sleep(100); // this is due to the asynchronous pattern of the framework
+            Thread.Sleep(1000); // this is due to the asynchronous pattern of the framework
 
             var @event = "plain ALL";
             var subscribed = await client.SubscribeAsync(@event);

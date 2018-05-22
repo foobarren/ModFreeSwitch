@@ -1,8 +1,23 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <Version>1.0.1</Version>
+    <PackageTags>freeswitch esl</PackageTags>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <ApplicationIcon />
+    <OutputType>Library</OutputType>
+    <StartupObject />
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageId>ModFreeSwitch.Core</PackageId>
+    <Authors>ModFreeSwitch.Core</Authors>
+    <Company>ModFreeSwitch.Core</Company>
+    <Product>ModFreeSwitch.Core</Product>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="app.config" />
+    <None Remove="packages.config" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="DotNetty.Buffers" Version="0.4.8" />
